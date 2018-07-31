@@ -11,7 +11,8 @@ void ATankAIController::Tick(float DeltaSeconds)
 	ATank* ControlledTank = Cast<ATank>(GetPawn());
 
 	// Move Towards Player
-		
+	MoveToActor(PlayerTank, AcceptanceRadius);
+
 	// Aim Towards Player
 	ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
