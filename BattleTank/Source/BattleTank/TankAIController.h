@@ -7,8 +7,6 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-class ATank;
-
 UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
@@ -18,9 +16,11 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 
+protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+		float AcceptanceRadius = 8000;
+
 private:
 	virtual void BeginPlay() override;
-
-	float AcceptanceRadius = 3000;
 
 };

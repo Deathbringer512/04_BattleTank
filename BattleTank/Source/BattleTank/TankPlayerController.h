@@ -8,7 +8,7 @@
 #include "TankPlayerController.generated.h"
 
 // Forward Declaraation
-class ATank;
+class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
@@ -20,8 +20,13 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 
+protected:
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+		void FoundAimingComponent(UTankAimingComponent* AimCompRef);
+
+
 private:
-	ATank * GetControlledTank() const;
 
 	// Start the tank moving the barrel so that a shot would hit hit where the crosshair intersects the world
 	void AimTowardsCrosshair();
