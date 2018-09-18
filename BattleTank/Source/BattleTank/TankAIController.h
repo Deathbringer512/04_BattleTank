@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/World.h"
 #include "AIController.h"
+#include "Tank.h"
 #include "TankAIController.generated.h"
 
 UCLASS()
@@ -21,6 +22,14 @@ protected:
 		float AcceptanceRadius = 8000;
 
 private:
+
 	virtual void BeginPlay() override;
+
+	APawn* ControlledTankAsPawn;
+
+	virtual void SetPawn(APawn* InPawn) override;
+
+	UFUNCTION()
+		void OnPossessedTankDeath();
 
 };

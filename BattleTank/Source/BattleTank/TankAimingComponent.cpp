@@ -78,10 +78,6 @@ void UTankAimingComponent::AimAt(FVector HitLocation)
 		FString TankName = GetOwner()->GetName();
 		MoveBarrelTowards(AimDirection);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%f: No Aiming Solution Found"), Time);
-	}
 }
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
